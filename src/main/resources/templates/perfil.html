@@ -8,10 +8,158 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Enlace a tu archivo CSS personalizado -->
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        /* Estilo general */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fb; /* Fondo gris claro */
+            color: #333;
+        }
+
+        /* Barra de navegación */
+        nav.navbar {
+            background-color: #283593; /* Azul oscuro profesional */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+        }
+
+        nav.navbar .navbar-brand {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        nav.navbar .nav-link {
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav.navbar .nav-link:hover {
+            color: #ffb74d; /* Amarillo suave en hover */
+        }
+
+        /* Título de la página */
+        h1 {
+            font-size: 2.8rem;
+            color: #283593; /* Azul oscuro */
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        /* Estilo del contenedor de perfil */
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        /* Estilo de la alerta de éxito */
+        .alert-success {
+            background-color: #e8f5e9;
+            color: #388e3c;
+            border: 1px solid #388e3c;
+            font-weight: 500;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Información del perfil */
+        .perfil-info {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .perfil-info:hover {
+            transform: translateY(-10px); /* Efecto 3D al pasar el mouse */
+        }
+
+        .perfil-info p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .perfil-info strong {
+            color: #283593;
+            font-weight: 600;
+        }
+
+        /* Imagen del usuario */
+        .perfil-imagen {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #ffb74d;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .perfil-imagen:hover {
+            transform: scale(1.1); /* Efecto 3D de ampliación */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Botón de Editar Perfil */
+        .perfil-acciones a {
+            display: inline-block;
+            background-color: #283593;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .perfil-acciones a:hover {
+            background-color: #ffb74d; /* Amarillo suave */
+            transform: translateY(-3px);
+        }
+
+        /* Estilo de la barra de navegación */
+        .navbar form button {
+            background-color: #e64a19; /* Rojo para el botón de cerrar sesión */
+            color: white;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            margin-left: 10px;
+        }
+
+        .navbar form button:hover {
+            background-color: #c62828; /* Rojo más oscuro */
+        }
+
+        /* Espaciado para mobile */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .perfil-info p {
+                font-size: 1rem;
+            }
+
+            h1 {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Cafetería</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,19 +197,69 @@
             ¡Perfil actualizado exitosamente!
         </div>
 
-        <!-- Información del perfil -->
-        <div class="perfil-info mt-4">
-            <p><strong>Nombre:</strong> <span th:text="${usuario.nombre}"></span></p>
-            <p><strong>Apellido:</strong> <span th:text="${usuario.apellido}"></span></p>
-            <p><strong>Email:</strong> <span th:text="${usuario.email}"></span></p>
-            <p><strong>Teléfono:</strong> <span th:text="${usuario.telefono}"></span></p>
-            <p><strong>Dirección:</strong> <span th:text="${usuario.direccion}"></span></p>
-            <p><strong>Rol:</strong> <span th:text="${usuario.rol}"></span></p>
+        <!-- Imagen del usuario -->
+        <div class="text-center">
+            <img src="https://img.freepik.com/psd-gratis/representacion-3d-icono-cafeteria_23-2149878993.jpg?uid=R125668796&ga=GA1.1.138046701.1731826877&semt=ais_hybrid" alt="Imagen de usuario" class="perfil-imagen">
         </div>
+        
+        <!-- Información del perfil -->
+<div class="perfil-info">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="perfil-dato">
+                <i class="https://img.freepik.com/vector-gratis/icono-contacto-ilustracion-vectorial-3d-boton-azul-simbolo-perfil-usuario-sitios-red-o-aplicaciones-estilo-dibujos-animados-aislados-fondo-blanco-comunicacion-linea-concepto-marketing-digital_778687-1715.jpg?uid=R125668796&ga=GA1.1.138046701.1731826877&semt=ais_hybrid"></i> <!-- Icono de usuario -->
+                <strong>Nombre:</strong>
+                <span th:text="${usuario.nombre}"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="perfil-dato">
+                <i class="bi bi-person-badge"></i> <!-- Icono de apellido -->
+                <strong>Apellido:</strong>
+                <span th:text="${usuario.apellido}"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="perfil-dato">
+                <i class="https://img.freepik.com/foto-gratis/mensaje-correo-o-boton-simbolo-icono-sobre-burbuja-voz-azul-sobre-fondo-blanco-representacion-3d_56104-1184.jpg?uid=R125668796&ga=GA1.1.138046701.1731826877&semt=ais_hybrid"></i> <!-- Icono de email -->
+                <strong>Email:</strong>
+                <span th:text="${usuario.email}"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="perfil-dato">
+                <i class="https://img.freepik.com/foto-gratis/boton-simbolo-signo-icono-contacto-telefonico-burbuja-voz-azul-sobre-fondo-blanco-representacion-3d_56104-1186.jpg?uid=R125668796&ga=GA1.1.138046701.1731826877&semt=ais_hybrid"></i> <!-- Icono de teléfono -->
+                <strong>Teléfono:</strong>
+                <span th:text="${usuario.telefono}"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="perfil-dato">
+                <i class="https://img.freepik.com/foto-gratis/boton-simbolo-signo-icono-direccion-ubicacion-direccion-navegacion-burbuja-voz-azul-sobre-fondo-blanco-representacion-3d_56104-1185.jpg?uid=R125668796&ga=GA1.1.138046701.1731826877&semt=ais_hybrid"></i> <!-- Icono de dirección -->
+                <strong>Dirección:</strong>
+                <span th:text="${usuario.direccion}"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="perfil-dato">
+                <i class="https://img.freepik.com/psd-premium/cubo-azul-figura-azul-el_1309609-100639.jpg?uid=R125668796&ga=GA1.1.138046701.1731826877&semt=ais_hybrid"></i> <!-- Icono de rol -->
+                <strong>Rol:</strong>
+                <span th:text="${usuario.rol}"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
 
         <!-- Enlace para editar el perfil -->
-        <div class="perfil-acciones mt-4">
-            <a href="/perfil/editar" class="btn btn-cafeteria">Editar Perfil</a>
+        <div class="perfil-acciones">
+            <a href="/perfil/editar">Editar Perfil</a>
         </div>
     </div>
 

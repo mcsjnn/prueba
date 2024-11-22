@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Pedido</title>
+</head>
+<body>
+    <h1>Crear Pedido</h1>
+    <form th:action="@{/crear-pedido}" method="post">
+        <p>Producto: <span th:text="${producto.nombre}">Producto</span></p>
+        <p>Cantidad: <input type="number" name="cantidad" th:value="1"></p>
+        <p>Usuario (Email): <input type="email" name="emailUsuario" required></p>
+        <button type="submit">Confirmar Pedido</button>
+    </form>
+    <p th:text="${error}"></p>
+</body>
+</html>

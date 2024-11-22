@@ -21,11 +21,11 @@ public class CustomUserDetailsService implements UserDetailsService {
         Usuario usuario = usuarioRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
 
+        // Comparar contraseñas codificadas
         return User.builder()
                 .username(usuario.getEmail())
-                .password(usuario.getPassword())
+                .password(usuario.getPassword()) // La contraseña debe estar codificada
                 .roles(usuario.getRol().name())
                 .build();
     }
-
 }

@@ -17,15 +17,20 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authConfig -> {
                     authConfig
-                            .requestMatchers("/", "/inicio", "/participantes", "/registro", "/css/**", "/js/**")
+                            // Permitir acceso a rutas abiertas primero
+                            .requestMatchers("/", "/inicio", "/menu_productos", "/registro", "/css/**", "/js/**")
                             .permitAll()
-                            .requestMatchers("/admin/**").hasRole("ADMIN")
-                            .requestMatchers("/perfil/**").authenticated()
+                            // Luego aplicar las restricciones de roles para áreas protegidas
+                            .requestMatchers("/admin/**").hasRole("ADMIN") // Solo admins
+                            .requestMatchers("/perfil/**").authenticated() // Usuarios autenticados
+                            // Finalmente, requerir autenticación para cualquier otra ruta no definida
+                            // anteriormente
                             .anyRequest().authenticated();
                 })
                 .formLogin(form -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/login")
+                        /* Maneja la redireccion despues de iniciar sesion */
                         .successHandler((request, response, authentication) -> {
                             if (authentication.getAuthorities().stream()
                                     .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {

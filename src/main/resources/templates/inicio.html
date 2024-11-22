@@ -5,12 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Sistema de Pedidos de Cafetería</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-fondo: #E9E9E9; /* Gris claro */
+            --color-principal: #FF902B; /* Naranja vibrante */
+            --color-texto: #2F2105; /* Marrón oscuro */
+            --color-boton: #FF902B; /* Naranja para botones */
+            --color-boton-hover: #E68900; /* Naranja más oscuro para hover */
+            --color-card: #ffddd4; /* Naranja suave para tarjetas */
+            --color-footer: #2F2105; /* Marrón oscuro para pie de página */
+        }
+
+        /* Estilo del Header */
+        header {
+            width: 100%;
+            height: 100vh;
+            background-color: var(--color-principal);
+            background: linear-gradient(to right, hsla(180, 46%, 13%, 0.459), hsla(0, 11%, 31%, 0.689)), 
+                        url(https://img.freepik.com/psd-gratis/fondo-naturaleza-muerta-cafe_23-2150625556.jpg?t=st=1732265453~exp=1732269053~hmac=63e4b9483585738a0f65bce56716f336cfa50522dadfa15efb672f62a64a1c59&w=1060);
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            color: white;
+            padding-top: 80px; /* Ajustado para mayor espacio debajo del navbar */
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .navbar {
+            z-index: 2;
+            position: relative;
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: var(--color-texto); /* Marrón oscuro para los enlaces de la barra de navegación */
+        }
+
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: #A62422; /* Color secundario cuando se pasa el ratón */
+        }
+
+        .wave-content {
+            position: relative;
+            z-index: 2;
+            padding: 6rem 1rem;
+            text-align: center;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .wave-content h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .wave-content p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.25rem;
+            color: #fff;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .btn-dark {
+            background-color: var(--color-boton); /* Naranja para botones */
+            border: none;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-dark:hover {
+            background-color: var(--color-boton-hover); /* Naranja más oscuro al pasar el ratón */
+            transform: scale(1.05);
+        }
+
+        .btn-outline-dark {
+            border: 2px solid #6d4c41;
+            color: var(--color-texto); /* Marrón oscuro para el borde */
+        }
+
+        .btn-outline-dark:hover {
+            background-color: #6d4c41;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Tarjetas */
+        .card {
+            border: none;
+            border-radius: 15px;
+            background-color: var(--color-card); /* Naranja suave para tarjetas */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-15px) rotate3d(1, 1, 0, 10deg); /* Movimiento 3D */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            font-weight: bold;
+            color: var(--color-texto); /* Marrón oscuro */
+            font-size: 1.25rem;
+        }
+
+        footer {
+            background-color: var(--color-footer); /* Marrón oscuro para pie de página */
+            color: #f8f9fa;
+            padding: 1rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .card-body {
+            opacity: 0;
+            animation: fadeInCard 1s ease-out forwards;
+        }
+
+        @keyframes fadeInCard {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn:hover {
+            animation: scaleUp 0.2s forwards;
+        }
+
+        @keyframes scaleUp {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand text-dark" href="#">Cafetería</a>
+            <a class="navbar-brand text-dark" href="#">ROYAL</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,7 +175,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Iniciar Sesión</a>
                     </li>
-                    <!-- Enlace a la página de perfil -->
                     <li class="nav-item">
                         <a class="nav-link" href="/perfil">Mi Perfil</a>
                     </li>
@@ -34,49 +183,57 @@
         </div>
     </nav>
 
-    <div class="container text-center mt-5">
-        <h1 class="text-dark">Bienvenido al Sistema de Pedidos de Cafetería</h1>
-        <p class="lead text-muted">Realiza tu pedido de forma fácil y rápida. ¡Explora nuestra variedad de productos!</p>
+    <!-- Header con Efecto Wave -->
+    <header>
+        <div class="wave-content">
+            <h1>Bienvenido al Sistema de Pedidos de Royal</h1>
+            <p class="lead">Realiza tu pedido de forma fácil y rápida. ¡Explora nuestra variedad de productos!</p>
+        </div>
+        <svg class="wave-svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+            <path d="M0.00,60 C150.00,120 350.00,30 500.00,60 L500.00,150 L0.00,150 Z" style="stroke: none; fill: #fff;"></path>
+        </svg>
+    </header>
 
+    <!-- Main Content -->
+    <div class="container text-center mt-5">
         <div class="row mt-5">
             <div class="col-md-4 mb-4">
-                <div class="card shadow-sm border-0">
-                    <img src="https://img.freepik.com/psd-gratis/fondo-naturaleza-muerta-cafe_23-2150625560.jpg?semt=ais_hybrid" class="card-img-top" alt="Imagen Cafetería">
+                <div class="card shadow-sm">
+                    <img src="https://img.freepik.com/psd-gratis/fondo-naturaleza-muerta-cafe_23-2150625560.jpg?w=900" class="card-img-top" alt="Imagen Cafetería">
                     <div class="card-body">
                         <h5 class="card-title">Haz tu Pedido</h5>
-                        <p class="card-text text-muted">Selecciona tu bebida o producto favorito y realiza tu pedido al instante.</p>
+                        <p class="card-text">Selecciona tu producto favorito y realiza tu pedido YA!.</p>
                         <a href="/pedidos/crear" class="btn btn-dark w-100">Hacer Pedido</a>
                     </div>
                 </div>
             </div>
-
             <div class="col-md-4 mb-4">
-                <div class="card shadow-sm border-0">
-                    <img src="https://img.freepik.com/psd-gratis/fondo-3d-cafeteria_23-2150817352.jpg" class="card-img-top" alt="Imagen Estado Pedido">
+                <div class="card shadow-sm">
+                    <img src="https://img.freepik.com/psd-gratis/fondo-3d-dia-internacional-cafe_23-2150674861.jpg?uid=R125668796&ga=GA1.1.138046701.1731826877&semt=ais_hybrid" class="card-img-top" alt="Imagen Cafetería">
                     <div class="card-body">
-                        <h5 class="card-title">Ver Estado del Pedido</h5>
-                        <p class="card-text text-muted">Consulta el estado de tus pedidos actuales en tiempo real.</p>
-                        <a href="/pedidos" class="btn btn-outline-dark w-100">Ver Pedidos</a>
+                        <h5 class="card-title">Ver Mi Orden</h5>
+                        <p class="card-text">Revisa el estado de tus pedidos y no esperes mucho tiempo.</p>
+                        <a href="/pedidos" class="btn btn-dark w-100">Ver Pedidos</a>
                     </div>
                 </div>
             </div>
-
             <div class="col-md-4 mb-4">
-                <div class="card shadow-sm border-0">
-                    <img src="https://img.freepik.com/psd-gratis/fondo-3d-cafeteria_23-2150817356.jpg" class="card-img-top" alt="Imagen Perfil">
+                <div class="card shadow-sm">
+                    <img src="https://img.freepik.com/psd-gratis/fondo-3d-cafeteria_23-2150817356.jpg?uid=R125668796&ga=GA1.1.138046701.1731826877&semt=ais_hybrid" class="card-img-top" alt="Imagen Cafetería">
                     <div class="card-body">
-                        <h5 class="card-title">Tu Perfil</h5>
-                        <p class="card-text text-muted">Consulta y actualiza tus datos personales de forma sencilla.</p>
-                        <a href="/perfil" class="btn btn-outline-dark w-100">Ver Perfil</a>
+                        <h5 class="card-title">Mi Perfil</h5>
+                        <p class="card-text">Edita tu información personal y preferencias a tu gusto.</p>
+                        <a href="/perfil" class="btn btn-dark w-100">Ver Perfil</a>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <footer class="mt-5 text-center py-4 text-muted">
-            <p>&copy; 2024 Cafetería - Todos los derechos reservados</p>
-        </footer>
     </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <p>© 2024 Cafetería. Todos los derechos reservados.</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

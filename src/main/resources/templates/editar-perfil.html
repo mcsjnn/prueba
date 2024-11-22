@@ -3,6 +3,117 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Editar Perfil</title>
+    <style>
+        /* Estilo general de la página */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Fondo gris suave */
+            color: #333;
+        }
+
+        /* Barra de navegación */
+        nav {
+            background-color: #1F3A52; /* Azul oscuro elegante */
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #E6B77D; /* Amarillo suave al pasar el ratón */
+            text-decoration: underline;
+        }
+
+        /* Título principal */
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2D3E50; /* Gris oscuro */
+            margin: 40px 0;
+        }
+
+        /* Estilo del formulario */
+        form {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            width: 85%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            text-align: center;
+        }
+
+        form div {
+            margin-bottom: 20px;
+        }
+
+        form label {
+            font-size: 1rem;
+            color: #1F3A52;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        form input:focus {
+            border-color: #E6B77D; /* Amarillo suave en el foco */
+        }
+
+        /* Estilo del botón de guardar cambios */
+        form button {
+            background-color: #1F3A52; /* Azul oscuro */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        form button:hover {
+            background-color: #E6B77D; /* Amarillo suave al hacer hover */
+            transform: translateY(-2px); /* Efecto de elevación */
+        }
+
+        /* Estilo del enlace de cancelar */
+        form a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #E64A19; /* Rojo vibrante */
+            font-size: 1rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        form a:hover {
+            color: #D32F2F; /* Rojo más oscuro */
+        }
+    </style>
 </head>
 <body>
     <nav>

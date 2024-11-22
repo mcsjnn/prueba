@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menú de Productos</title>
+</head>
+<body>
+    <h1>Menú de Productos</h1>
+    <ul>
+        <th:block th:each="producto : ${productos}">
+            <li>
+                <span th:text="${producto.nombre}">Producto Nombre</span> - 
+                <span th:text="${producto.precio}">Precio</span>
+                <a th:href="@{/crear-pedido?productoId={id}(id=${producto.id})}">Hacer Pedido</a>
+            </li>
+        </th:block>
+    </ul>
+</body>
+</html>

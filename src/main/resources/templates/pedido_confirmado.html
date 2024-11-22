@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pedido Confirmado</title>
+</head>
+<body>
+    <h1>¡Pedido Confirmado!</h1>
+    <p>Producto: <span th:text="${pedido.producto.nombre}">Producto</span></p>
+    <p>Cantidad: <span th:text="${pedido.cantidad}">Cantidad</span></p>
+    <p>Estado: <span th:text="${pedido.estado}">Estado</span></p>
+    <p>Fecha de Creación: <span th:text="${pedido.fechaCreacion}">Fecha</span></p>
+</body>
+</html>

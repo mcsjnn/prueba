@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Panel de Administración - Cafetería</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .admin-stats, .admin-actions {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            width: 80%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .admin-stats h2, .admin-actions h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .admin-stats p {
+            font-size: 1.2em;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        form button {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+        form button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/inicio">Inicio</a>
+        <a href="/admin/panel">Panel Admin</a>
+        <a href="/admin/productos">Gestionar Productos</a>
+        <a href="/admin/pedidos">Gestionar Pedidos</a>
+        <a href="/perfil">Mi Perfil</a>
+    </nav>
+
+    <h1>Panel de Administración - Cafetería</h1>
+    
+    <div class="admin-stats">
+        <h2>Estadísticas</h2>
+        <p>Total de usuarios: <span th:text="${totalUsuarios}"></span></p>
+        <p>Total de productos en el menú: <span th:text="${totalProductos}"></span></p>
+        <p>Total de pedidos hoy: <span th:text="${pedidosHoy}"></span></p>
+    </div>
+
+    <div class="admin-actions">
+        <h2>Acciones Rápidas</h2>
+        <a href="/admin/productos" class="button">Gestionar Productos</a>
+        <a href="/admin/pedidos" class="button">Gestionar Pedidos</a>
+        <a href="/admin/usuarios" class="button">Gestionar Usuarios</a>
+    </div>
+
+    <form th:action="@{/logout}" method="post" style="display: inline;">
+        <button type="submit">Cerrar Sesión</button>
+    </form>
+</body>
+</html>

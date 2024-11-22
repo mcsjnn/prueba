@@ -1,0 +1,110 @@
+/* Reset de márgenes y padding para asegurarse que el contenido no tenga márgenes indeseados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo global para la tipografía y el fondo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5dc; /* Beige para el fondo */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    color: #333; /* Color de texto global */
+    padding-top: 60px; /* Espacio para el navbar fijo */
+}
+
+/* Navbar siempre en la parte superior */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que el navbar esté por encima del contenido */
+}
+
+/* Estilos generales de tarjetas */
+.card {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Fondo blanco para la tarjeta */
+    margin: 15px;
+    width: 100%;
+}
+
+/* Cuerpo de las tarjetas */
+.card-body {
+    padding: 2rem;
+}
+
+/* Títulos */
+h3, h1 {
+    font-weight: bold;
+    color: #6f4f37; /* Café oscuro */
+}
+
+/* Estilos para los campos de formulario */
+label {
+    font-weight: 500;
+    color: #6f4f37;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #dcdfe1; /* Gris suave */
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #c69c6d; /* Caramelo en foco */
+    box-shadow: 0 0 8px rgba(198, 156, 109, 0.5);
+}
+
+/* Botones */
+.btn-cafeteria {
+    background-color: #c69c6d; /* Caramelo */
+    border-color: #c69c6d;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cafeteria:hover {
+    background-color: #d9a35c; /* Caramelo más claro en hover */
+    border-color: #d9a35c;
+}
+
+/* Enlaces */
+.text-cafeteria {
+    color: #c69c6d;
+}
+
+.text-cafeteria:hover {
+    text-decoration: underline;
+    color: #6f4f37; /* Café oscuro al pasar el mouse */
+}
+
+/* Footer */
+footer {
+    background-color: #fff;
+    color: #777;
+    font-size: 1rem;
+    border-top: 1px solid #eee;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+/* Estilos responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        margin: 15px;
+    }
+}
